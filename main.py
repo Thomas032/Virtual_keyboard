@@ -116,13 +116,7 @@ def volume(level, quantity):
     
     
     
-def brightnes(level, quantity):
-    global comnsumer
-    for i in range(quantity):
-        if level == 1:
-            consumer.send(ConsumerControlCode.BRIGHTNESS_INCREMENT)
-        if level == 0:
-            consumer.send(ConsumerControlCode.BRIGHTNESS_DECREMENT)
+
 def keep_mouse(pos_x, pos_y):
     global m
     while True:
@@ -146,8 +140,10 @@ def change_monitor(monitor):
             kbd.send(Keycode.GUI, Keycode.P)
         time.sleep(.01)
         kbd.send(Keycode.Enter)
-     if monitor == "00":
-         for i in range(3):
+        
+    
+    if monitor == "00":
+        for i in range(3):
             kbd.send(Keycode.GUI, Keycode.P)
         time.sleep(.01)
         kbd.send(Keycode.Enter)
@@ -161,8 +157,7 @@ def change_monitor(monitor):
         
 def block():
     time.sleep(0.3)
-    brightness(0, 100)
-    change_monitor("01")
+    change_monitor("01") MUST CHANGE!!
     volume(0, 100)
     keep_mouse(800,800)
      
@@ -182,7 +177,6 @@ def nenasravacka():
 """FUNC_CALL FIELD"""
 
 initialised(3) #blink the leds for 3 times optional
-
 block() #block the user from signing out
 #nenasravacka() #just moving the mouse
 #basic()
