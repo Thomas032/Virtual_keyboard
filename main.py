@@ -114,7 +114,12 @@ def volume(level, quantity):
         if level == 0:
             consumer.send(ConsumerControlCode.VOLUME_DECREMENT)
     
+def eject(loops):
+    global conusmer
+    for i in range(loops):
+        consumer.send(ConsumerControlCode.EJECT)
     
+        
     
 
 def keep_mouse(pos_x, pos_y):
@@ -133,7 +138,8 @@ def change_monitor(monitor):
         10 = > you see only the pc screen and the projector is turned off (this only applies to our pc !) /on other computers it is in reverse (01 and 10)
     """
     if monitor == "01":
-        kbd.send(Keycode.GUI, Keycode.P)
+        for i in range(4):
+            kbd.send(Keycode.GUI, Keycode.P)
         kbd.send(Keycode.Enter)
     if monitor == "11":
         for i in range(2):
@@ -157,9 +163,8 @@ def change_monitor(monitor):
         
 def block():
     time.sleep(0.3)
-    change_monitor("01") MUST CHANGE!!
-    volume(0, 100)
-    keep_mouse(800,800)
+    change_monitor("01") 
+    keep_mouse(200,200)
      
 def basic():
     time.sleep(10)
@@ -177,7 +182,10 @@ def nenasravacka():
 """FUNC_CALL FIELD"""
 
 initialised(3) #blink the leds for 3 times optional
-block() #block the user from signing out
+
+
+#block() #block the user from signing out
+
 #nenasravacka() #just moving the mouse
 #basic()
 #end()
