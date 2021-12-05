@@ -101,14 +101,6 @@ class K_keyboard():
                 self.caps(0)
                 
     def change_monitor(self, monitor):
-        
-        """
-        EXPLANATION OF VAR MONITOR:
-            01 = > you only see the second monitor (in our case turned off projector)
-            11 = > you see both screens at once (monitor and projector are duplicating)
-            00 = > you see both but they are not duplicating it is extended
-            10 = > you see only the pc screen and the projector is turned off (this only applies to our pc !) /on other computers it is in reverse (01 and 10)
-        """
         if monitor == "01":
             for i in range(4):
                 self.kbd.send(Keycode.GUI, Keycode.P)
@@ -166,16 +158,8 @@ class C_consumer():
     def eject(self, loops):
         self.consumer.send(ConsumerControlCode.EJECT)
 
-
-        
     
-
-
-        
-        
-class Basics():
-    
-        
+class Basics():       
     def block_mose_move(self):
         global khundalini, mys
         time.sleep(0.3)
@@ -218,14 +202,7 @@ led = Led()
 
 
 """ !-GLOBAL VARIABLES-!"""    
-        
 
-
-     
-
-    
-    
-    
 
 """FUNC_CALL FIELD"""
 khundalini.initialised(3)
@@ -234,24 +211,8 @@ while True:
         basics.classic()
     if btn2.value == True:
         led.on_set(50, 0.05)
-        print("done")
-        
-        
-
-
 
 
 """ !-END OF FUNC_CALL FIELD-! """
-  
 
-# 
-#                                          A
-#             ___                         / \
-#          .="   "=._.---.               /   \              ____________
-#        ."         c ' Y'`p            /     \            /)  -
-#       /     \     `\  w_/            :~~~~~~~:          / )-   .   -
-#       |      )  /     /              |  2.E  |         <  )      -- 
-# ______|     /__-\ \_=.\              |       |          \ )  -      -
-#(XXXXX/'`------)))`=-'"`'"___________/__/__\___\___ _ _ _ \)___________
-# ~~~~~
 
